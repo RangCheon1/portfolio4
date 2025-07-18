@@ -12,70 +12,152 @@
 
     <!-- 소개 섹션 -->
     <section class="section" id="about">
-      <h1>소개</h1>
-      <div class="about-container">
-        <div class="about-box">
-          <h2>👤 프로필</h2>
-          <ul>
-            <li>이름: 김민성</li>
-            <li>이메일: vibaldi36@gmail.com</li>
-          </ul>
-        </div>
-        <div class="about-box">
-          <h2>🎓 교육이력</h2>
-          <ul>
-            <li>2025.02.24 ~ 2025.08.06: 그린컴퓨터 아카데미</li>
-          </ul>
-        </div>
-        <div class="about-box">
-          <h2>🔥 각오</h2>
-          <p class="commitment">
-            성실함과 열정으로 임하며, 끊임없이 성장하는 개발자가 되겠습니다.
-          </p>
-        </div>
-        <div class="about-box">
-          <h2>🛠️ 사용 가능 기술</h2>
-          <ul>
-            <li>Spring, JSP, MySQL</li>
-            <li>Git, GitHub, VS Code</li>
-          </ul>
+      <div class="about-section">
+        <h2 class="about-title">ABOUT ME <span>| 소개</span></h2>
+        <div class="about-content">
+          <!-- 프로필 이미지 -->
+          <div class="profile">
+            <img src="image/profile.jpg" alt="프로필 사진" />
+          </div>
+
+          <!-- 자기소개 텍스트 -->
+          <div class="intro">
+            <p>
+              <span class="highlight">일개미</span>처럼 성실한 신입 개발자,
+              <strong>김민성</strong>입니다.
+            </p>
+            <p class="desc">
+              프로젝트를 진행하며 <span class="purple">50%의 의외성과 고민</span>을 기록하고,
+              <span class="highlight">Notion</span>으로 학습한 내용을 정리하여
+              <span class="purple">꾸준히 성장</span>하고 있습니다.
+            </p>
+
+            <!-- 핵심 가치 -->
+            <ul class="check-list">
+              <li>
+                ✅ <strong>성실한 자세</strong><br />
+                맡은 업무를 끝낼 때마다 고민과 학습 내용을 기록하며
+                <span class="purple">흐름을 파악</span>하고 프로젝트 완성도에 임했습니다.
+              </li>
+              <li>
+                🤝 <strong>소통과 협업</strong><br />
+                팀원과 약속을 지키고 의견을 조율하며,
+                <span class="purple">화합하는 시간을 주도</span>했습니다.
+              </li>
+              <li>
+                🎯 <strong>설계와 안목</strong><br />
+                기능 구현을 넘어, 예외 상황 예측과 효율적 설계를 고민하는
+                개발자가 되기 위해 노력합니다.
+              </li>
+            </ul>
+
+            <!-- 추가 버튼 -->
+            <div class="links">
+              <a href="https://www.notion.so" target="_blank" class="btn">📒 Notion 작업 일지</a>
+              <a href="https://github.com/rangcheon1" target="_blank" class="btn">💻 GitHub</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+
+<section class="section" id="skills">
+  <div class="skills-container">
+
+    <!-- About Me -->
+    <div class="skills-box">
+      <h3>About Me</h3>
+      <ul>
+        <li><strong>이름</strong> 김민성</li>
+        <li><strong>생년월일</strong> 1995.12.09</li>
+        <li><strong>연락처</strong> 010-3849-9570</li>
+        <li><strong>이메일</strong> vibaldi36@gmail.com</li>
+      </ul>
+      <h3>Education</h3>
+      <ul>
+        <li>울산 그린 컴퓨터 아카데미 (2025.02~2025.08)</li>
+      </ul>
+      <h3>Certificate</h3>
+      <ul>
+        <li>컴퓨터 응용 선반</li>
+      </ul>
+    </div>
+
+    <!-- Project -->
+    <div class="skills-box">
+      <h3>Project</h3>
+      <p>공공데이터를 활용한 AI풀스택 웹 개발</p>
+      <ul>
+        <li>냉난반 요금 납부 증명서 출력 기능 구현</li>
+        <li>시.도별 전력 사용량 예측 대시보드 구현</li>
+        <li>해상교통량 측정 및 안전진단 최소경로 예측 시스템</li>
+      </ul>
+            <div class="links" style="display: flex; align-items: flex-start">
+              <a href="https://www.notion.so" style="margin-bottom: 10px" target="_blank" class="btn">📒 Notion 작업 일지</a>
+              <a href="https://github.com/rangcheon1" target="_blank" class="btn">💻 GitHub</a>
+            </div>
+    </div>
+
+    <!-- Skills & Tools -->
+<div class="skills-box">
+  <h3>Skills & Tools</h3>
+
+  <h4>Languages</h4>
+  <p class="skill-list">Java, JavaScript, Python, HTML/CSS</p>
+
+  <h4>Frameworks</h4>
+  <p class="skill-list">Spring</p>
+
+  <h4>Database</h4>
+  <p class="skill-list">MySQL</p>
+
+  <h4>Environments</h4>
+  <p class="skill-list">Visual Studio Code</p>
+
+  <h4>Tools</h4>
+  <p class="skill-list">GitHub, Notion</p>
+</div>
+
+  </div>
+</section>
+
+
+
     <!-- 프로젝트 섹션 -->
     <section class="section" id="projects">
       <h1>📂 프로젝트</h1>
-      <div class="projects-slider">
-        <div class="project-item">
-          <h3>냉난방 요금 납부 증명서 출력 기능 구현</h3>
-          <img src="image/1차/메인메뉴.PNG" width="600" alt="프로젝트1 이미지" />
-          <a href="/1st project.html">바로가기</a>
+      <div class="projects-wrapper">
+        <div class="projects-slider">
+          <div class="project-item">
+            <h3>냉난방 요금 납부 증명서 출력 기능 구현</h3>
+            <img src="image/1차/메인메뉴.PNG" alt="프로젝트1" />
+            <a href="/1st project.html">바로가기</a>
+          </div>
+          <div class="project-item">
+            <h3>시.도별 전력사용량 예측 대시보드 구현</h3>
+            <img src="image/2차/메인.PNG" alt="프로젝트2" />
+            <a href="/2nd project.html">바로가기</a>
+          </div>
         </div>
-        <div class="project-item">
-          <h3>시.도별 전력사용량 예측 대시보드 구현</h3>
-          <img src="image/2차/메인.PNG" width="600" alt="프로젝트2 이미지" />
-          <a href="/2nd project.html">바로가기</a>
-        </div>
+        <!-- 슬라이드 버튼 -->
+        <button class="slide-btn prev">◀</button>
+        <button class="slide-btn next">▶</button>
+        <div class="slide-indicator">1/2</div>
       </div>
-      <!-- 슬라이드 이동 버튼 -->
-      <button class="slide-btn prev">◀</button>
-      <button class="slide-btn next">▶</button>
-      <div class="slide-indicator">1/2</div>
     </section>
 
     <!-- 개인 홈페이지 섹션 -->
     <section class="section" id="simple-site">
       <h1>🌐 간단한 개인 홈페이지</h1>
-      
       <div class="site-grid">
         <div class="site-box">
-          <p>HTML/CSS만 사용해 만든 홈페이지 입니다.</p>
+          <p>HTML/CSS만 사용한 홈페이지</p>
           <img src="image/KakaoTalk_20250703_103213086.png" alt="홈페이지1" />
           <a href="https://rangcheon1.github.io/portfolio/" target="_blank">사이트 방문하기</a>
         </div>
         <div class="site-box">
-          <p>JavaScript 까지 추가한 홈페이지 입니다.</p>
+          <p>JavaScript까지 추가한 홈페이지</p>
           <img src="image/popol.PNG" alt="홈페이지2" />
           <a href="https://rangcheon1.github.io/portfolio2/" target="_blank">사이트 방문하기</a>
         </div>

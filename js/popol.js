@@ -1,42 +1,38 @@
-const slider = document.querySelector('.projects-slider');
-const btnPrev = document.querySelector('.slide-btn.prev');
-const btnNext = document.querySelector('.slide-btn.next');
-const slideIndicator = document.querySelector('.slide-indicator');
-const slides = document.querySelectorAll('.project-item');
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.querySelector('.projects-slider');
+  const items = document.querySelectorAll('.project-item');
+  const prevBtn = document.querySelector('.slide-btn.prev');
+  const nextBtn = document.querySelector('.slide-btn.next');
+  const indicator = document.querySelector('.slide-indicator');
 
-const slideWidth = 600 + 32; // 600px 이미지 너비 + gap 2rem(32px)
-const totalSlides = slides.length;
+  let index = 0;
+  const total = items.length;
+  let itemWidth = items[0].offsetWidth + 20; // margin 포함
 
-let currentIndex = 0;
+  // ✅ 슬라이드 업데이트 함수
+  function updateSlide() {
+    slider.style.transform = `translateX(-${index * itemWidth}px)`;
+    indicator.textContent = `${index + 1}/${total}`;
+  }
 
-// 현재 페이지 번호 업데이트
-function updateIndicator() {
-  slideIndicator.textContent = `${currentIndex + 1}/${totalSlides}`;
-}
-
-// 슬라이드 이동 함수
-function slideTo(index) {
-  slider.scrollTo({
-    left: slideWidth * index,
-    behavior: 'smooth'
+  // ✅ 윈도우 리사이즈 시 itemWidth 재계산
+  window.addEventListener('resize', () => {
+    itemWidth = items[0].offsetWidth + 20;
+    updateSlide();
   });
-  currentIndex = index;
-  updateIndicator();
-}
 
-// 이전 버튼 클릭
-btnPrev.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    slideTo(currentIndex - 1);
-  }
+  // ✅ 이전 버튼
+  prevBtn.addEventListener('click', () => {
+    index = (index > 0) ? index - 1 : total - 1;
+    updateSlide();
+  });
+
+  // ✅ 다음 버튼
+  nextBtn.addEventListener('click', () => {
+    index = (index < total - 1) ? index + 1 : 0;
+    updateSlide();
+  });
+
+  // ✅ 초기 상태 설정
+  updateSlide();
 });
-
-// 다음 버튼 클릭
-btnNext.addEventListener('click', () => {
-  if (currentIndex < totalSlides - 1) {
-    slideTo(currentIndex + 1);
-  }
-});
-
-// 초기 표시
-updateIndicator();
