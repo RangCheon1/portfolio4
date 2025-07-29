@@ -1,4 +1,3 @@
-/* ✅ 기본 리셋 */
 * {
   margin: 0;
   padding: 0;
@@ -7,17 +6,158 @@
 
 html, body {
   scroll-behavior: smooth;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Arial', sans-serif;
   background: #fafafa;
   color: #333;
   scroll-snap-type: y mandatory;
 }
 
+body {
+  background-color: #f8f8f8;
+}
+
 .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
   height: auto;
 }
 
-/* ✅ 공통 섹션 스타일 */
+  #receipt-print {
+    width: 1200px;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #eef2ff;
+    font-family: 'Arial', sans-serif;
+  }
+
+#receipt-print .header-banner {
+  top: 0;
+  left: 0;
+  width: 100%; /* 필요하면 너비 조절 */
+  padding: 10px 20px; /* 상하좌우 여백 조절 */
+  font-size: 18px; /* 필요에 따라 폰트 크기 조절 */
+  background-color: #4f46e5;
+  color: white;
+  font-weight: bold;
+  z-index: 1000; /* 다른 요소 위로 올라오도록 */
+  border-radius: 0 0 8px 0; /* 약간 둥근 모서리 (선택사항) */
+}
+
+    #receipt-print .card {
+      background-color: white;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 40px;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    #receipt-print h2 {
+      color: #4f46e5;
+      margin-bottom: 20px;
+    }
+
+    #receipt-print .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    #receipt-print .text-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    #receipt-print .text-content h3 {
+      margin: 10px 0 20px;
+      font-size: 18px;
+      color: #444;
+    }
+
+    #receipt-print .text-content p {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    #receipt-print .label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    #receipt-print .img-container {
+      flex: 1;
+      min-width: 300px;
+      text-align: right;
+    }
+
+    #receipt-print .img-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    /* 작은 화면 대응 */
+    @media (max-width: 768px) {
+      #receipt-print .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #receipt-print .img-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      #receipt-print .card {
+        padding: 20px;
+      }
+    }
+    /* receipt-print 고유 영역 끝 */
+
+    .text-content {
+  padding: 20px;
+  background-color: #f0f4ff;   /* 은은한 연한 파랑 배경 */
+  border-radius: 12px;         /* 둥근 모서리 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 살짝 그림자 효과 */
+  line-height: 1.6;
+  color: #333;
+  font-size: 16px;
+  max-width: 600px;            /* 너무 넓지 않게 제한 */
+  margin: 0 auto;              /* 가운데 정렬 (필요 시) */
+  transition: background-color 0.3s ease;
+}
+
+.text-content h3 {
+  margin-top: 15px;
+  margin-bottom: 8px;
+  color: #4f46e5;              /* 보라색 계열 포인트 컬러 */
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.text-content p {
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 16px;
+}
+
+/* 반응형 - 작은 화면에서는 최대 너비 제거 */
+@media (max-width: 768px) {
+  .text-content {
+    max-width: 100%;
+    padding: 15px;
+  }
+}
+
+
 .section {
   scroll-snap-align: start;
   min-height: 100vh;
@@ -27,14 +167,16 @@ html, body {
   align-items: center;
   padding: 3rem 2rem;
   text-align: center;
+  margin-bottom: 3rem;
 }
 
-/* ✅ 배경색 구역별 */
+/* 배경색 구역별 */
 #about { background: #fff9db; }
 #projects { background: #ffe5e5; position: relative; }
 #simple-site { background: #d9f0f0; }
+#skills { background: #f9f9f9; }
 
-/* ✅ 타이틀 */
+/* 타이틀 */
 h1 {
   font-size: 3rem;
   margin-bottom: 1.5rem;
@@ -47,7 +189,7 @@ h2 {
   font-weight: 600;
 }
 
-/* ✅ ABOUT ME 섹션 */
+/* ABOUT ME 섹션 */
 .about-section {
   max-width: 1000px;
   text-align: left;
@@ -65,18 +207,20 @@ h2 {
   display: flex;
   gap: 30px;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .profile img {
   width: 150px;
   height: 150px;
-  border-radius: 8px;
+  border-radius: 50%;
   border: 2px solid #000;
   object-fit: cover;
 }
 
 .intro {
   flex: 1;
+  min-width: 250px;
 }
 
 .intro p {
@@ -95,10 +239,10 @@ h2 {
   font-weight: bold;
 }
 
-/* ✅ 체크 리스트 */
+/* 체크 리스트 */
 .check-list {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
   margin-top: 10px;
 }
 
@@ -118,7 +262,7 @@ h2 {
   font-weight: bold;
 }
 
-/* ✅ 링크 버튼 */
+/* 링크 버튼 */
 .links {
   margin-top: 20px;
 }
@@ -139,133 +283,8 @@ h2 {
   background: #4b4bbd;
 }
 
-/* ✅ 프로젝트 슬라이더 */
-.projects-wrapper {
-  position: relative;
-  max-width: 600px;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.projects-slider {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.project-item {
-  flex: 0 0 600px;
-  background: #fff;
-  padding: 1.6rem;
-  border-radius: 14px;
-  margin-right: 20px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-.project-item:last-child {
-  margin-right: 0;
-}
-
-.project-item img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
-.project-item h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-}
-
-.project-item a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.project-item a:hover {
-  color: #1e40af;
-}
-
-/* ✅ 슬라이드 버튼 */
-.slide-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #fff;
-  border: none;
-  font-size: 2.4rem;
-  padding: 0.5rem 1.1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  color: #666;
-  z-index: 10;
-}
-
-.slide-btn.prev {
-  left: 0.5rem;
-}
-
-.slide-btn.next {
-  right: 0.5rem;
-}
-
-.slide-btn:hover {
-  background: #1d4ed8;
-  color: #fff;
-}
-
-.slide-indicator {
-  margin-top: 1rem;
-  font-weight: bold;
-}
-
-/* ✅ 사이트 박스 */
-.site-grid {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.site-box {
-  background: #fff;
-  padding: 1.8rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
-  width: 420px;
-  text-align: center;
-}
-
-.site-box img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border-radius: 12px;
-}
-
-.site-box p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-.site-box a {
-  color: #2563eb;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.site-box a:hover {
-  color: #1e40af;
-}
-
+/* 스킬 섹션 */
 #skills {
-  background: #f9f9f9;
   min-height: 100vh;
   padding: 3rem 2rem;
   display: flex;
@@ -278,6 +297,7 @@ h2 {
   gap: 3rem;
   max-width: 1200px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .skills-box {
@@ -285,7 +305,8 @@ h2 {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-  flex: 1;
+  flex: 1 1 300px;
+  min-width: 280px;
 }
 
 .skills-box h3 {
@@ -305,6 +326,7 @@ h2 {
   display: inline-block;
   padding: 6px 10px;
   border-radius: 4px;
+  margin-bottom: 1rem;
 }
 
 .skills-box h4 {
@@ -325,35 +347,118 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-.channel-links a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-  color: #3f51b5;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.channel-links a img {
-  width: 20px;
-  height: 20px;
-}
-
-.skill-icons {
+/* 프로젝트 섹션 */
+.projects-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 1rem auto 3rem auto;
 }
 
-.skill-icons img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
-  cursor: default;
+.project-item {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.project-card {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  margin-bottom: 0.8rem;
+}
+
+.project-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-description-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+
+.project-description-card h3 {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1rem;
+  min-height: 48px;
+}
+
+.project-description-card .btn {
+  background-color: #4f46e5;
+  color: white;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.project-description-card .btn:hover {
+  background-color: #3b3bbb;
+}
+
+/* 개인 홈페이지 섹션 */
+.site-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-box {
+  background: #fff;
+  padding: 1.8rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  width: 280px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.site-box img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  border-radius: 12px;
+}
+
+.site-box p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.site-box a {
+  color: #2563eb;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.site-box a:hover {
+  color: #1e40af;
+}
+
+/* 반응형 */
 @media (max-width: 960px) {
   #skills {
     padding: 2rem 1rem;
@@ -365,12 +470,10 @@ h2 {
 
   .skills-box {
     width: 100%;
+    margin-bottom: 1.5rem;
   }
 }
 
-
-
-/* ✅ 반응형 */
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;
@@ -382,22 +485,230 @@ h2 {
     margin-bottom: 15px;
   }
 
-  .projects-wrapper {
-    max-width: 90vw;
+  .projects-grid {
+    justify-content: center;
   }
 
   .project-item {
-    flex: 0 0 90vw;
-    margin-right: 0;
+    width: 90vw;
+    max-width: 400px;
   }
 
-  .slide-btn.prev {
-    left: 0.5rem;
+  .site-grid {
+    justify-content: center;
   }
 
-  .slide-btn.next {
-    right: 0.5rem;
+  .site-box {
+    width: 90vw;
+    max-width: 400px;
   }
-
-  
 }
+
+/* ============================
+   비로그인 회원조회 섹션 스타일
+   (ID: guest-lookup-section)
+   ============================ */
+
+#guest-lookup-section {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #f0f4ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+#guest-lookup-section .header-banner {
+  background-color: #4f46e5;
+  color: white;
+  padding: 16px 24px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#guest-lookup-section h3, 
+#guest-lookup-section h4 {
+  color: #4f46e5;
+  font-size: 1.4rem;
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+#guest-lookup-section p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+#guest-lookup-section img {
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 설명 텍스트 박스 */
+#guest-lookup-section .explanation-box {
+  background-color: #e6edff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  #guest-lookup-section {
+    padding: 20px 15px;
+  }
+
+  #guest-lookup-section .header-banner {
+    font-size: 18px;
+    padding: 12px 16px;
+  }
+
+  #guest-lookup-section img {
+    width: 90%;
+    height: auto;
+  }
+
+  #guest-lookup-section .explanation-box {
+    padding: 15px;
+  }
+}
+
+#guest-lookup-section .image-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px; /* 이미지 간 간격 */
+  margin: 20px 0;
+}
+
+#guest-lookup-section .image-row img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  object-fit: contain;
+}
+
+/* 작은 화면에서 세로 정렬되도록 */
+@media (max-width: 768px) {
+  #guest-lookup-section .image-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #guest-lookup-section .image-row img {
+    width: 90%;
+    height: auto;
+  }
+}
+
+/* ============================
+   납부 증명서 출력 기능 섹션
+   (ID: print-feature-section)
+   ============================ */
+
+#print-feature-section {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #f0f4ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+#print-feature-section .header-banner {
+  background-color: #4f46e5;
+  color: white;
+  padding: 16px 24px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#print-feature-section h4 {
+  color: #4f46e5;
+  font-size: 1.3rem;
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+#print-feature-section p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* 이미지 정렬 영역 */
+#print-feature-section .image-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+#print-feature-section .image-row img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  object-fit: contain;
+}
+
+/* 설명 박스 */
+#print-feature-section .explanation-box {
+  background-color: #e6edff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  #print-feature-section {
+    padding: 20px 15px;
+  }
+
+  #print-feature-section .header-banner {
+    font-size: 18px;
+    padding: 12px 16px;
+  }
+
+  #print-feature-section .image-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #print-feature-section .image-row img {
+    width: 90%;
+    height: auto;
+  }
+
+  #print-feature-section .explanation-box {
+    padding: 15px;
+  }
+}
+
+
